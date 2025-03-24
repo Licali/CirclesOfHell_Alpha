@@ -1,6 +1,14 @@
-# CirclesOfHell_Alpha
-# CirclesOfHell_Alpha
-# CirclesOfHell_Alpha
-# CirclesOfHell_Alpha
-# CirclesOfHell_Alpha
-# CirclesOfHell_Alpha
+GameManager.cs
+Этот скрипт будет управлять состоянием игры и переключением сцен.
+
+Card.cs
+Определите базовую сущность карты.
+
+Player.cs
+Скрипт, описывающий игрока и его колоду.
+
+Enemy.cs
+Аналогичный скрипт для врага/босса.
+
+TurnManager.cs
+Управление очередностью ходов.
