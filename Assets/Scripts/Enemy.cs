@@ -1,16 +1,36 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
     public int health = 20;
     public int attackPower = 3;
 
+    
+
+    //public void ReceiveDamage(int damage)
+    //{
+    //    health -= damage;
+
+    //    Debug.Log("Враг получил урон: " + damage + ". Осталось HP: " + health);
+    //    if (health <= 0)
+    //    {
+    //        Debug.Log("Враг побеждён!");
+
+    //    }
+    //}
+
     public void ReceiveDamage(int damage)
     {
         health -= damage;
-        if(health <= 0)
-        {
+        Debug.Log("Враг получил урон: " + damage + ". Осталось HP: " + health);
 
+        UIManager.Instance.UpdateHealth(Player.Instance.health, health);
+
+        if (health <= 0)
+        {
+            Debug.Log("Враг побежден!");
+            //call method to change room
+            
         }
     }
 

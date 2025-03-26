@@ -7,6 +7,19 @@ public class Player : MonoBehaviour
     public int health = 20;
     public List<Card> deck = new List<Card>();
 
+    public static Player Instance { get; private set; }
+
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
+    }
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

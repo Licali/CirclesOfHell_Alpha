@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class RoomTransitionManager : MonoBehaviour
 {
+    public static RoomTransitionManager Instance { get; private set; }
+
     [Header("Objects links")]
     public Transform player;
     public Transform cameraPosition;
@@ -37,6 +39,17 @@ public class RoomTransitionManager : MonoBehaviour
         }
 
         StartCoroutine(MoveToNextRoom(nextRoomCenter));
+    }
+
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
     }
 
     public IEnumerator MoveToNextRoom(Transform nextRoomCenter)

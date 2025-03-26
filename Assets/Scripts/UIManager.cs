@@ -8,6 +8,19 @@ public class UIManager : MonoBehaviour
     public Player player;
     public Enemy enemy;
 
+    public static UIManager Instance { get; private set; }
+
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
+    }
+
     public void UpdateHealth(int playerHealth, int enemyHealth)
     {
         playerHealthText.text = "YOUR HP: " + playerHealth;
